@@ -1,0 +1,103 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block title %}
+    <title>Register - WizLink</title>
+{% endblock title %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'accounts/css/register.css' %}">
+{% endblock css %}
+
+{% block body %}
+    <div class="container">
+        <div class="form-container">
+            <h1>Create your Account</h1>
+            <form method="post">
+                {% csrf_token %}
+
+                {% if form.errors %}
+                <div class="error-container">
+                    <ul>
+                        {% for field in form %}
+                            {% if field.errors %}
+                                <li>
+                                    {% for error in field.errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+
+                <div class="form-group">
+                    <!-- <label for="username">Username</label> -->
+                    <div class="icon-input"> 
+                        <i class="fa fa-user icon"></i>
+                        <input type="text" id="username" name="username" required placeholder="Username">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!-- <label for="email">Email</label> -->
+                    <div class="icon-input">
+                        <i class="fa fa-envelope icon"></i>
+                        <input type="email" id="email" name="email" required placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!-- <label for="password1">Password</label> -->
+                    <div class="icon-input">
+                        <i class="fa fa-key icon"></i>
+                        <input type="password" id="password1" name="password1" required placeholder="Password" title="Your password must be at least 8 characters long and contain a combination of uppercase and lowercase letters, numbers, and symbols.">
+                        <!-- <span class="password-toggle">
+                            <i class="fa fa-eye-slash icon"></i> </span> -->
+                    </div>
+                    <!-- <div class="password-hint">
+                        <p>Your password must be at least 8 characters long and contain a combination of uppercase and lowercase letters, numbers, and symbols.</p>
+                    </div> -->
+                </div>
+                <div class="form-group">
+                    <!-- <label for="password2">Confirm Password</label> -->
+                    <div class="icon-input">
+                        <i class="fa fa-key icon"></i>
+                        <input type="password" id="password2" name="password2" required placeholder="Confirm your Password">
+                        <!-- <span class="password-toggle">
+                            <i class="fa fa-eye-slash icon"></i> </span> -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!-- <label for="bio">About Yourself (Optional)</label> -->
+                    <div class="icon-input">
+                        <i class="fa fa-info-circle icon"></i>
+                        <textarea name="bio" id="bio" placeholder="About Yourself"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!-- <label for="location">Location (Optional)</label> -->
+                    <div class="icon-input">
+                        <i class="fa fa-map-marker-alt icon"></i>
+                        <input type="text" id="location" name="location" placeholder="Your Location (City, State)">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="icon-input">
+                        <i class="fa fa-calendar icon" onclick="document.getElementById('birth_date').click();"></i>
+                        <!-- <input type="text" id="birth_date_text" placeholder="DD / MM / YYYY" readonly> -->
+                        <!-- <input type="date" id="birth_date" name="birth_date" min="1900-01-01" max="{{ today|date:'Y-m-d' }}" onchange="updateDateText(this.value);"> -->
+                        <input type="date" id="birth_date" name="birth_date" min="1900-01-01" max="{{ today|date:'Y-m-d' }}">
+                        <!-- <span class="datepicker-toggle">
+                            <span class="datepicker-toggle-button"></span>
+                            <input type="date" class="datepicker-input" name="birth_date" min="1900-01-01" max="{{ today|date:'Y-m-d' }}">
+                        </span>                           -->
+                    </div>
+                </div>
+                <button type="submit"><b>Register</b></button>
+            </form>
+            <span class="login-redirect">
+                <p>Already have an account? <a href="{% url 'login' %}"><b>Login here</b></a>.</p>
+            </span>
+        </div>
+    </div>
+{% endblock body %}

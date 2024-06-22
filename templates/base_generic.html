@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %} {% endblock title %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    {% block css %} {% endblock css %}
+</head>
+<body>
+    {% block body %}
+    {% endblock body %}
+
+    <!-- <script>
+        function updateDateText(value) {
+            const date = new Date(value);
+            const day = ('0' + date.getDate()).slice(-2);
+            const month = ('0' + (date.getMonth() + 1)).slice(-2);
+            const year = date.getFullYear();
+            document.getElementById('birth_date_text').value = `${day} / ${month} / ${year}`;
+        }
+    </script> -->
+    
+</body>
+</html>
