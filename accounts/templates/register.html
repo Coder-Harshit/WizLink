@@ -16,7 +16,7 @@
             <form method="post">
                 {% csrf_token %}
 
-                {% if form.errors %}
+                {% comment %} {% if form.errors %}
                 <div class="error-container">
                     <ul>
                         {% for field in form %}
@@ -30,7 +30,19 @@
                         {% endfor %}
                     </ul>
                 </div>
-                {% endif %}
+                {% endif %} 
+                 {% endcomment %}
+                
+                 {% if form.errors %}
+                 <div class="error-container">
+                    {% comment %} {{ form.errors }} {% endcomment %}
+                        {% for error in field.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
+                 {% endif %}
+
+                {% comment %} {{registrationForm.as_p}} {% endcomment %}
 
                 <div class="form-group">
                     <!-- <label for="username">Username</label> -->
@@ -84,20 +96,14 @@
                 <div class="form-group">
                     <div class="icon-input">
                         <i class="fa fa-calendar icon" onclick="document.getElementById('birth_date').click();"></i>
-                        <!-- <input type="text" id="birth_date_text" placeholder="DD / MM / YYYY" readonly> -->
-                        <!-- <input type="date" id="birth_date" name="birth_date" min="1900-01-01" max="{{ today|date:'Y-m-d' }}" onchange="updateDateText(this.value);"> -->
                         <input type="date" id="birth_date" name="birth_date" min="1900-01-01" max="{{ today|date:'Y-m-d' }}">
-                        <!-- <span class="datepicker-toggle">
-                            <span class="datepicker-toggle-button"></span>
-                            <input type="date" class="datepicker-input" name="birth_date" min="1900-01-01" max="{{ today|date:'Y-m-d' }}">
-                        </span>                           -->
                     </div>
                 </div>
                 <button type="submit"><b>Register</b></button>
             </form>
             <span class="login-redirect">
                 <p>Already have an account? <a href="{% url 'login' %}"><b>Login here</b></a>.</p>
-            </span>
+            </span> 
         </div>
     </div>
 {% endblock body %}

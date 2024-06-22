@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
+    'viewer',
 ]
 
 MIDDLEWARE = [
@@ -48,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'viewer.middleware.LoginRequiredMiddleware'
 ]
 
 ROOT_URLCONF = 'WizLink.urls'
@@ -127,3 +129,19 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/viewer/'
+LOGOUT_REDIRECT_URL = '/accounts/login/'
+
+# Define the exempt URLs
+LOGIN_EXEMPT_URLS = [
+    '/accounts/login/',
+    '/accounts/register/',
+    '/accounts/logout/',
+    '/accounts/password_reset/',
+    '/accounts/password_reset/done/',
+    '/accounts/reset/',
+    '/accounts/reset/done/',
+    '/admin/',  # Don't forget to exempt the admin URLs if needed
+]
