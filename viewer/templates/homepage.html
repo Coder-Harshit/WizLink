@@ -10,5 +10,69 @@
 {% endblock css %}
 
 {% block body %}
-    HOMEPAGE
+    <div class="container">
+        <header>
+            <nav>
+                <div class="logo">📰 WizLink</div>
+                <ul>
+                    <li><a href="#">All</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">Exclusives</a></li>
+                    <li><a href="#">Guides</a></li>
+                    <li><a href="#">Recommended</a></li>
+                </ul>
+                <div class="language-select">En ▼</div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Article name, tag, category...">
+                    <button>🔍</button>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section class="featured-article">
+                <div class="article-content">
+                    <span class="category">BEST OF THE WEEK</span>
+                    <span class="timestamp">Blockchain News • 4 hours ago</span>
+                    <h1>Top Analyst Unveils Ethereum Catalyst That Could Trigger Nearly 50% Surge for ETH – Here's His Outlook</h1>
+                    <div class="tags">
+                        <span>#Ethereum</span>
+                        <span>#Analytics</span>
+                    </div>
+                    <button class="read-more">Read article →</button>
+                </div>
+                <div class="article-image">
+                    <!-- Placeholder for the purple sphere image -->
+                    <div class="sphere"></div>
+                </div>
+            </section>
+
+            <section class="recommended">
+                <div class="section-header">
+                    <h2>Recommended</h2>
+                    <a href="#" class="view-all">View all →</a>
+                </div>
+                <div class="article-list">
+                    <!-- Repeat this structure for each recommended article -->
+                    <article>
+                        <img src="{% static 'img/article1.jpg' %}" alt="Article image">
+                        <div class="article-info">
+                            <span class="timestamp">Blockchain News • 4 hours ago</span>
+                            <h3>US-Approved Spot Bitcoin ETFs Could Surpass Entire $50 Billion Crypto ETP Market: BitMEX</h3>
+                        </div>
+                    </article>
+                    <!-- More articles... -->
+                </div>
+            </section>
+
+            <section class="more-news">
+                <!-- Repeat this structure for each news item -->
+                <article>
+                    <span class="timestamp">Blockchain News • 4 hours ago</span>
+                    <h3>Top Analyst Unveils Ethereum Catalyst That Could Trigger Nearly 50% Surge for ETH</h3>
+                </article>
+                <!-- More news items... -->
+            </section>
+        </main>
+    </div>
 {% endblock body %}
