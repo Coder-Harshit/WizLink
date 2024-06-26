@@ -11,4 +11,7 @@
 
 {% block body %}
     <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro</h1>
+    {% for blog in blogposts %}
+        {{blog}}
+    {% endfor %}
 {% endblock body %}

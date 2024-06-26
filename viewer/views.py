@@ -2,4 +2,5 @@ from django.shortcuts import render
 
 # Create your views here.
 def homepage(request):
-    return render(request, 'homepage.html')
+    context={'blogposts':[1,2,3]}
+    return render(request, 'homepage.html',context=context)
