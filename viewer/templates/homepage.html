@@ -10,49 +10,5 @@
 {% endblock css %}
 
 {% block body %}
-<header>
-    <div class="container">
-        {% comment %} <a href="{% url 'home' %}" class="logo">Your Blog Name</a> {% endcomment %}
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                </ul>
-        </nav>
-        {% comment %} <div class="user-profile">
-            <a href="{% url 'user_profile' %}"><img src="{% static 'images/user-icon.png' %}" alt="User Profile"></a>
-        </div> {% endcomment %}
-    </div>
-</header>
-
-<main>
-    <section class="hero">
-        {% comment %} <img src="{% static 'images/hero-image.jpg' %}" alt="Hero Image"> {% endcomment %}
-        </section>
-
-    <section class="content">
-        <div class="container">
-            <h2>Latest Posts</h2>
-            <div class="blog-posts">
-                {% for post in posts %}
-                    <article>
-                        <a href="{% url 'post_detail' post.slug %}">
-                            <img src="{{ post.featured_image.url }}" alt="{{ post.title }}">
-                            <h3>{{ post.title }}</h3>
-                            <p>{{ post.excerpt }}</p>
-                            <span class="category">{{ post.category }}</span>
-                        </a>
-                    </article>
-                {% endfor %}
-            </div>
-            <form class="search-bar">
-                <input type="text" placeholder="Search Blog Posts">
-                <button type="submit">Search</button>
-            </form>
-        </div>
-    </section>
-</main>
-
-<footer>
-</footer>
+    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro</h1>
 {% endblock body %}
