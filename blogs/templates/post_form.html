@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'viewer/css/homepage.css' %}">
+{% endblock css %}
+
+{% block body %}
+    <h2>New Post</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+{% endblock body %}
+
+

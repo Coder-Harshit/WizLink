@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'viewer/css/homepage.css' %}">
+{% endblock css %}
+
+{% block body %}
+    {% for post in posts %}
+        <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
+        <p>{{ post.content|truncatewords:30 }}</p>
+        <p>By {{ post.author }}</p>
+    {% endfor %}
+{% endblock body %}
+
