@@ -10,67 +10,35 @@
 {% endblock css %}
 
 {% block body %}  
-<div class="container-fluid p-0">
-    <div class="image_bg_container">
-        <div class="form_container px-3">
-            <h1><div class="h1 py-5">Sign In</div></h1>
-            <form method="post">
-                {% csrf_token %}
-                <div>
-                    <div class="input-group my-4">
-                        <span class="input-group-text"><i class="fa fa-user icon"></i></span>
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="floatingUsername" placeholder="Username" aria-label="Username" required name="username">
-                            <label for="floatingUsername" class="floating_label">Username</label>
+    <div class="container-fluid p-0">
+        <div class="image_bg_container">
+            <div class="form_container px-3">
+                <h1><div class="h1 py-5">Sign In</div></h1>
+                <form method="post">
+                    {% csrf_token %}
+                    <div>
+                        <div class="input-group my-4">
+                            <span class="input-group-text"><i class="fa fa-user icon"></i></span>
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingUsername" placeholder="Username" aria-label="Username" required name="username">
+                                <label for="floatingUsername" class="floating_label">Username</label>
+                            </div>
+                        </div>
+                        <div class="input-group my-4">
+                            <span class="input-group-text"><i class="fa fa-key icon"></i></span>
+                            <div class="form-floating">
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" aria-label="Password" required name="password">
+                            <label for="floatingPassword" class="floating_label">Password</label>
+                            </div>    
                         </div>
                     </div>
-                    <div class="input-group my-4 mb-0">
-                        <span class="input-group-text"><i class="fa fa-key icon"></i></span>
-                        <div class="form-floating">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" aria-label="Password" required name="password">
-                        <label for="floatingPassword" class="floating_label">Password</label>
-                        </div>    
-                    </div>
-                    <div id="passwordHelpBlock" class="form-text mb-4">
-                        Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-                    </div>
-                </div>
 
-                <button type="submit" class="btn btn-primary"><b>Login</b></button>
-            </form>
-            <div class="signup-redirect my-5">
-                <p>Don't have an account? <a href="{% url 'register' %}"><b>Register here</b></a>.</p>
+                    <button type="submit" class="btn btn-primary"><b>Login</b></button>
+                </form>
+                <div class="signup-redirect my-5">
+                    <p>Don't have an account? <a href="{% url 'register' %}"><b>Register here</b></a>.</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-
-{% comment %}
-<!-- <div class="container">
-        <div class="form-container">
-            <h1>Sign In</h1>
-            <form method="post">
-                {% csrf_token %}
-                <div class="form-group">
-                    <div class="icon-input"> 
-                        <i class="fa fa-user icon"></i>
-                        <input type="text" id="username" name="username" required placeholder="Username">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="icon-input">
-                        <i class="fa fa-key icon"></i>
-                        <input type="password" id="id_password" name="password" required placeholder="Password">
-                    </div>
-                </div>
-                <button type="submit"><b>Login</b></button>
-            </form>
-            <span class="signup-redirect">
-                <p>Don't have an account? <a href="{% url 'register' %}"><b>Register here</b></a>.</p>
-            </span>
-        </div>
-    </div>  -->
-{% endcomment %}
-
 {% endblock body %}
