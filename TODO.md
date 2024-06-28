@@ -1,2 +1,5 @@
 # TODO:
-- Add Proper error msg box in login adn registration pages ... with styling
+- [ ] [create proper DOB field in registration](accounts/templates/register.html)
+- [ ] [create proper Location input field in registration](accounts/templates/register.html)
+- [ ] Implement a proper Login & Registration Designing
+- [ ] Tooltip implementation also (bootstrap) for both login & register templates
