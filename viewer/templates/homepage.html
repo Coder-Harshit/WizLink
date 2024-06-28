@@ -9,6 +9,16 @@
     <link rel="stylesheet" href="{% static 'viewer/css/homepage.css' %}">
 {% endblock css %}
 
+{% block navbar %}
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                Bootstrap
+            </a>
+        </div>
+    </nav>
+{% endblock navbar %}   
+
 {% block body %}
     <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro</h1>
     {% for blog in blogposts %}
