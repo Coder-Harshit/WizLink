@@ -10,6 +10,11 @@
     <p>{{ post.content }}</p>
     <p>By {{ post.author }}</p>
 
+    {% for label in labels %}
+        <span class="badge badge-pill badge-primary">{{ label.label }}</span>
+        hello
+    {% endfor %}
+
     <h3>Comments</h3>
     {% for comment in comments %}
         <p>{{ comment.author }}: {{ comment.content }}</p>

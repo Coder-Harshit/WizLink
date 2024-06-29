@@ -23,6 +23,7 @@ def post_list(request):
 def post_detail(request, pk):
     post = get_object_or_404(BlogPost, pk=pk)
     comments = post.comments.all()
+    labels = post.admin_labels()
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
@@ -33,8 +34,8 @@ def post_detail(request, pk):
             return redirect('post_detail', pk=post.pk)
     else:
         form = CommentForm()
-    return render(request, 'post_detail.html', {'post': post, 'comments': comments, 'form': form})
-
+    return render(request, 'post_detail.html', {'post': post, 'comments': comments, 'form': form, 'labels':labels})
+                    
 def edit_post(request, pk):
     post = get_object_or_404(BlogPost, pk=pk)
     if request.user != post.author:
