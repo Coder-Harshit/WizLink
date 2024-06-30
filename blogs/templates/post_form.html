@@ -6,11 +6,22 @@
 {% endblock css %}
 
 {% block body %}
-    <h2>New Post</h2>
+    <h1>{% if form.instance.pk %}Edit{% else %}Create{% endif %} Post</h1>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Save</button>
+        <div class="form-group">
+            <label for="{{ form.title.id_for_label }}">Title:</label>
+            {{ form.title }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.content.id_for_label }}">Content:</label>
+            {{ form.content }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.tags.id_for_label }}">Tags:</label>
+            {{ form.tags }}             
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
     </form>
 {% endblock body %}
 
